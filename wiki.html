@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Вики страница игр</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.1.5">
+    <style>
+        /* Фон для затемнения */
+        .modal-container {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Модальное окно */
+        .modal-content {
+            max-width: 600px; /* Максимальная ширина модального окна */
+            max-height: 80vh; /* Максимальная высота 80% от высоты окна просмотра */
+            overflow-y: auto; /* Включаем вертикальную прокрутку */
+            padding: 20px; /* Отступы внутри модального окна */
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #444, #666);
+            text-align: center;
+        }
+
+        /* Кнопка для закрытия */
+        .close-modal {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        /* Дополнительные стили для hover */
+        .close-modal:hover, .close:hover {
+            color: #fff;
+        }
+
+        /* Дополнительные отступы для удобства чтения */
+        .modal-content h2, .modal-content p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Основной контент -->
+<div class="container">
+    <h1 id="wiki-header">Это вики страница игр</h1>
+</div>
+
+<!-- Кнопка для возврата на главное меню -->
+<a id="back-to-main" class="return-button" href="index.html">Вернуться на главное меню</a>
+
+<!-- Кнопка "Вернуться на вики страницу" -->
+<a id="back-to-wiki" class="return-button back-to-wiki-button" href="wiki.html" style="display: none;">Вернуться на вики
+    страницу</a>
+
+<!-- Основные разделы авторов -->
+<div class="header">
+    <div class="author" onclick="toggleAuthorSection(this, 'lavand7a')">by lavand7a</div>
+    <div class="author" onclick="toggleAuthorSection(this, 'vonder')">by vonder</div>
+</div>
+
+<!-- Кнопки выбора игры под by lavand7a -->
+<div id="game-selection-lavand7a" class="section-content">
+    <div class="game-button" onclick="showInstructions('tic-tac-toe')">Крестики-нолики</div>
+    <div class="game-button" onclick="showInstructions('other-game')">Другая игра</div>
+</div>
+
+<!-- Кнопки выбора игры под by vonder -->
+<div id="game-selection-vonder" class="section-content" style="display: none;">
+    <div class="game-button" onclick="showInstructions('invokergames')">Invokergames</div>
+    <div class="game-button" onclick="showInstructions('new-game')">Новая игра</div>
+</div>
+
+<!-- Подраздел для Крестики-нолики -->
+<div id="instructions-tic-tac-toe" class="section-content" style="display: none;">
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-server')">Инструкция server.py</div>
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-client')">Инструкция client.py</div>
+</div>
+
+<!-- Подраздел для Другая игра -->
+<div id="instructions-other-game" class="section-content" style="display: none;">
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-other-server')">Инструкция other_server.py
+    </div>
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-other-client')">Инструкция other_client.py
+    </div>
+</div>
+
+<!-- Подразделы для Invokergames -->
+<div id="instructions-invokergames" class="section-content" style="display: none;">
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-invoker-setup')">Как установить</div>
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-invoker-use')">Как пользоваться</div>
+</div>
+
+<!-- Подраздел для Новая игра -->
+<div id="instructions-new-game" class="section-content" style="display: none;">
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-invoker-instruction')">Инструкция ивокер</div>
+    <div class="sub-section sidebar-item" onclick="openModal('instruction-invoker-client')">Инструкция вокер</div>
+</div>
+
+<!-- Кнопка "Вернуться к выбору игры", универсальная для всех игр -->
+<a id="back-to-game-selection" class="return-button instruction-button" onclick="returnToGameSelection()"
+   style="display: none;">Вернуться к выбору игры</a>
+
+<!-- Инструкции для other_server.py и other_client.py -->
+<div id="instruction-other-server" class="instruction-content" style="display: none;">
+    <h2>Инструкция для other_server.py</h2>
+    <ul>
+        <li>Описание функционала сервера для другой игры.</li>
+        <li>Настройки подключения и управления.</li>
+    </ul>
+</div>
+
+<div id="instruction-other-client" class="instruction-content" style="display: none;">
+    <h2>Инструкция для other_client.py</h2>
+    <ul>
+        <li>Описание функционала клиента для другой игры.</li>
+        <li>Особенности и примеры использования.</li>
+    </ul>
+</div>
+
+<!-- Скрытые блоки с инструкциями для by lavand7a -->
+<div id="instruction-server" class="instruction-content">
+    <h2>Инструкция для server.py</h2>
+    <ul>
+        <li>Этот файл запускает сервер для игры в крестики-нолики.</li>
+        <li>Сервер обрабатывает подключение клиента.</li>
+        <li>Принимает и передает ход игры между клиентами.</li>
+        <li>Обрабатывает логику проверки победы.</li>
+    </ul>
+</div>
+
+<div id="instruction-client" class="instruction-content">
+    <h2>Инструкция для client.py</h2>
+    <ul>
+        <li>Этот файл запускает клиентскую часть для подключения к серверу крестиков-ноликов.</li>
+        <li>Клиент отправляет свои ходы на сервер.</li>
+        <li>Получает ход оппонента.</li>
+    </ul>
+</div>
+
+<!-- Инструкции для Invokergames -->
+<div id="instruction-invoker-setup" class="instruction-content" style="display: none;">
+    <h2>Как установить Invokergames</h2>
+<ul>
+    <li><strong>Скачайте установочный файл</strong>: Перейдите на страницу загрузки InvokerGames и загрузите установочный файл, созданный с помощью Inno Setup.</li>
+
+    <li><strong>Запустите установщик</strong>: Дважды щелкните по загруженному файлу, чтобы запустить процесс установки. При необходимости подтвердите запуск программы, если появится запрос от системы безопасности.</li>
+
+    <li><strong>Следуйте инструкциям установщика</strong>: Установщик предложит несколько шагов, таких как выбор папки установки, создание ярлыков и настройки запуска. Рекомендуется оставить настройки по умолчанию, если вы не уверены, что хотите изменить их.</li>
+
+    <li><strong>Выберите папку для установки</strong>: Укажите желаемое место на вашем компьютере для установки игры или оставьте папку по умолчанию, предложенную установщиком.</li>
+
+    <li><strong>Запустите процесс установки</strong>: Нажмите кнопку «Установить», и программа автоматически установит все необходимые файлы на ваш компьютер.</li>
+
+    <li><strong>Завершите установку</strong>: После завершения процесса установки установщик предложит вам опцию для запуска игры сразу или закрытия установщика. Выберите нужный вариант.</li>
+
+    <li><strong>Запустите InvokerGames</strong>: Если вы не выбрали опцию запуска сразу после установки, вы можете найти ярлык игры на рабочем столе или в меню «Пуск» и начать играть.</li>
+</ul>
+</div>
+
+<div id="instruction-invoker-use" class="instruction-content" style="display: none;">
+    <h2>Как пользоваться Invokergames</h2>
+<ul>
+    <li><strong>Представляем InvokerGames: Испытай магию Invoker в новом измерении на Unity!</strong></li>
+
+    <li>InvokerGames предлагает игрокам уникальный опыт управления магией Invoker из Dota 2. На основе движка Unity, игра позволяет исследовать магические сферы и использовать мощные заклинания для победы в сражениях.</li>
+
+    <li><strong>Открой силу 10 заклинаний Invoker</strong></li>
+
+    <li>Игрокам доступны три магические сферы — <em>Quas</em>, <em>Wex</em> и <em>Exort</em>. Комбинируя их, можно активировать до 10 заклинаний, каждое из которых уникально по эффекту и требует продуманной стратегии. Ключевое заклинание Exort R позволяет накапливать атакующую силу и использовать разрушительные способности.</li>
+
+    <li>
+        <strong>Quas</strong>: Способности для выживания и защиты. Каждое использование усиливает сопротивляемость и открывает доступ к защитным заклинаниям.
+    </li>
+
+    <li>
+        <strong>Wex</strong>: Управление скоростью и временем, позволяя ускорять себя и замедлять врагов для создания тактического преимущества.
+    </li>
+
+    <li>
+        <strong>Exort</strong>: Мощь разрушительной магии, увеличивающая вашу атакующую силу и позволяющая вызывать мощные атаки.
+    </li>
+
+    <li><strong>Основные особенности игры:</strong></li>
+
+    <li><strong>Интуитивное управление</strong>: Простая система управления персонажем и заклинаниями, удобная даже для новичков.</li>
+
+    <li><strong>Динамичные бои</strong>: Реалистичные сражения, где каждая ошибка или удачный ход влияют на исход боя.</li>
+
+    <li><strong>Разнообразие режимов игры</strong>: Доступны как одиночные миссии, так и многопользовательские битвы для проверки навыков.</li>
+
+    <li><strong>Графика и анимация</strong>: Графика и эффекты заклинаний придают игре атмосферу настоящей магической дуэли.</li>
+
+    <li><strong>Стань мастером магии Invoker</strong></li>
+
+    <li>Погружайтесь в мир InvokerGames и обучайтесь управлять стихиями. Тренируйте навыки комбинации сфер и совершенствуйте стратегии боя. Начните свой путь к мастерству магии Invoker и покажите, кто настоящий маг!</li>
+</ul>
+</div>
+
+<!-- Инструкции для новой игры от vonder -->
+<div id="instruction-invoker-instruction" class="instruction-content" style="display: none;">
+    <h2>Инструкция ивокер</h2>
+    <ul>
+        <li>Здесь будет описание основной инструкции для новой игры.</li>
+    </ul>
+</div>
+
+<div id="instruction-invoker-client" class="instruction-content" style="display: none;">
+    <h2>Инструкция вокер</h2>
+    <ul>
+        <li>Здесь будет описание клиентской части новой игры.</li>
+    </ul>
+</div>
+
+<div class="footer">by lavand7a</div>
+
+<script src="1script.js?v=1.1.5"></script>
+</body>
+</html>

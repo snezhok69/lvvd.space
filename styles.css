@@ -1,0 +1,1059 @@
+/* Основные настройки для body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #000000, #808080);
+    animation: backgroundAnimation 240s infinite alternate;
+    color: white;
+    font-family: 'Poppins', Arial, sans-serif; /* Добавляем Poppins */
+    overflow: hidden;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(135deg, #000000, #555555);
+    }
+    25% {
+        background: linear-gradient(135deg, #555555, #808080);
+    }
+    50% {
+        background: linear-gradient(135deg, #808080, #d3d3d3);
+    }
+    75% {
+        background: linear-gradient(135deg, #d3d3d3, #808080);
+    }
+    100% {
+        background: linear-gradient(135deg, #000000, #555555);
+    }
+}
+
+/* Кнопка возврата в главное меню */
+.main-menu-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #333, #666);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600; /* Средняя жирность */
+    transition: background 0.3s, transform 0.3s;
+}
+
+.main-menu-button:hover {
+    background: linear-gradient(to right, #555, #888);
+    transform: scale(1.05);
+}
+
+/* Основной контейнер для разделов авторов */
+.header {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+}
+
+/* Стили для текста внизу страницы */
+.footer-text {
+    position: absolute;
+    bottom: 30px; /* Расположение чуть выше основного текста */
+    right: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+}
+
+/* Стили для ссылки "ТЫК" */
+.highlight-link {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Poppins', sans-serif;
+}
+
+.highlight-link:hover {
+    color: orange; /* Подсветка оранжевым при наведении */
+    cursor: pointer;
+}
+
+
+/* Контейнер соцсетей внутри биографии */
+.author-content .social-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Кнопки соцсетей */
+.author-content .social-buttons img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.author-content .social-buttons img:hover {
+    transform: scale(1.1);
+}
+
+/* Убедитесь, что .author-content имеет относительное позиционирование */
+.author-content {
+    position: relative;
+    padding-bottom: 60px; /* чтобы кнопки не перекрывали текст */
+}
+
+.author-content {
+    padding: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 110px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-color: #333;
+    color: white;
+    /* max-width: 600px; */
+}
+
+/* Центрирование заголовка и кнопок */
+.author-content h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.author-photo {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.author-bio {
+    max-width: 600px;
+}
+
+.author-bio h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Стили для биографии автора с более ярким текстом */
+.author-bio p {
+    margin: 0;
+    font-size: 1em;
+    color: #f1f1f1; /* более яркий цвет */
+    font-weight: 500;
+}
+
+.author {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s;
+}
+
+.author.active {
+    background-color: #d26a2a;
+    color: #fff;
+}
+
+.author:hover {
+    color: #ffffff;
+}
+
+/* Подразделы */
+.sub-section {
+    cursor: pointer;
+    padding: 8px 15px;
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+.sub-section.active {
+    background-color: #6a2ad2;
+}
+
+/* Центрированный текст с описанием сайта */
+.center-content {
+    text-align: center;
+    color: #f0f0f0;
+    font-size: 3em; /* Увеличиваем размер текста */
+}
+
+/* Скрываемый контент для разделов */
+.section-content {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Боковая колонка */
+.sidebar {
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    width: 300px;
+    padding: 20px;
+    background: linear-gradient(45deg, #333, #444);
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    font-weight: 400; /* Средняя жирность */
+    margin-top: 20px;
+}
+
+/* Стили для скрытых блоков */
+#original-buttons, #placeholder-buttons {
+    display: none;
+}
+
+/* Кнопки и активные элементы */
+.sidebar-item {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 15px 0;
+    padding: 15px;
+    background: linear-gradient(to right, #555, #666);
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Тень для элементов sidebar */
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для тени и фона */
+}
+
+/* Анимация при наведении */
+.sidebar-item:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #ff8c00, #ffa500);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Глубокая тень при наведении */
+}
+
+/* Стиль для кнопок инструкций */
+.instruction-buttons {
+    margin-top: 10px;
+}
+
+/* Активный пункт */
+.sidebar-item.active {
+    background: linear-gradient(to right, #ff8c00, #ffa500);
+    color: black;
+}
+
+/* Добавим стили для выделения активных разделов и подразделов */
+.sidebar-item.active-section {
+    background-color: #FFA500; /* Ярко-оранжевый цвет для активного раздела */
+    color: white;
+}
+
+.sidebar-item.active-subsection {
+    background-color: #FFD580; /* Слабый оранжевый цвет для активного подраздела */
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff8800;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); /* Тень только под кнопками */
+}
+
+button:hover {
+    background-color: #ff6600;
+}
+
+/* Стили кнопок для подменю */
+.sub-section-buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    margin: 10px auto;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    animation: fadeIn 0.3s ease; /* Анимация появления */
+}
+
+.sub-section-buttons button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Кнопка для возврата к главному меню */
+#return-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    position: fixed;
+    z-index: 1000;
+    display: none;
+}
+
+/* Кнопка для возврата к выбору игры */
+#return-to-selection {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    margin-left: 20px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.small-button {
+    font-size: 0.8em;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.game-selection button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#back-to-games {
+    display: block;
+    margin-top: 10px;
+}
+
+.return-to-games-button {
+    display: block;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #555555;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.return-to-games-button:hover {
+    background-color: #777777;
+}
+
+/* Стиль кнопок выбора игры */
+.game-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    margin: 10px auto;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    background-color: #444; /* Серый фон */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Эффекты при наведении для кнопок выбора игр */
+.game-button:hover {
+    background-color: #FF4500; /* Яркий насыщенный оранжевый */
+    color: white; /* Оставляем текст белым */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+/* Общие стили для кнопок */
+.return-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Слегка увеличенная тень для большей глубины */
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;       /* Курсор в виде указателя при наведении */
+    text-decoration: none;
+    font-weight: 600;
+    position: fixed; /* Фиксируем позицию кнопок */
+    z-index: 1000;
+    transition: box-shadow 0.2s ease, transform 0.2s ease; /* Добавлен плавный переход для тени */
+}
+
+/* Дополнительные отступы для кнопок */
+.return-button, .return-button1, .sidebar-item {
+    margin: 10px 0; /* Добавим вертикальные отступы */
+}
+
+/* Эффекты для кнопок при наведении */
+.return-button:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Увеличение кнопки при наведении */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4); /* Глубокая тень при наведении */
+}
+
+/* Подстройка позиций для кнопок возврата */
+#back-to-main {
+    top: 15px;
+    right: 15px;
+}
+
+#back-to-wiki {
+    bottom: 100px; /* Подняли кнопку, чтобы она не накладывалась на другие элементы */
+    right: 20px;
+}
+
+/* Стиль для кнопки возврата */
+.return-button1 {
+    display: flex;           /* Убедитесь, что содержимое выровнено */
+    justify-content: center; /* Центрирование текста внутри кнопки */
+    align-items: center;     /* Центрирование текста внутри кнопки по вертикали */
+    width: 200px;            /* Фиксированная ширина */
+    height: 50px;            /* Фиксированная высота */
+    padding: 10px 20px;      /* Отступы внутри кнопки */
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 10px; /* Отступ между кнопками */
+    position: absolute;    /* Позиционирование кнопки */
+    right: 20px;           /* Отступ от правого края */
+    bottom: 70px;          /* Отступ от нижнего края */
+    transition: transform 0.3s ease; /* Плавный переход для трансформации */
+    cursor: pointer;       /* Курсор в виде указателя при наведении */
+}
+
+.return-button1:hover {
+    background-color: #555;
+    transform: scale(0.95); /* Уменьшение кнопки при наведении */
+}
+
+/* Контейнер для кнопок */
+.button-group {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    gap: 10px; /* Отступы между кнопками */
+    display: flex;
+    flex-direction: column; /* Размещает кнопки вертикально */
+    align-items: flex-end;  /* Выравнивает кнопки по правому краю */
+}
+
+/* Инструкции */
+.instruction-content {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    color: #f0f0f0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    font-size: 1.1em;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Отступы для инструкции */
+.instruction-content h2 {
+    margin-top: 20px;
+}
+
+.instruction-content ul {
+    margin-left: 20px; /* Отступ для списка */
+}
+
+/* Отступ для элементов */
+.instruction-content {
+    margin-bottom: 80px; /* Отступ снизу, чтобы текст не налегал на кнопки */
+}
+
+.container {
+    /* width: 100%; */
+    max-width: 600px;
+    /* padding: 30px; */
+    background-color: #333;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* margin: 0 auto; */
+}
+
+/* Заголовок с анимацией плавного появления */
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #d3d3d3;
+    opacity: 0;
+    font-weight: 600; /* Жирный для заголовка */
+    animation: textFadeIn 5s forwards;
+    margin-top: 30px; /* Дополнительный отступ для заголовка */
+}
+
+p, ul {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        color: #d3d3d3;
+    }
+    100% {
+        opacity: 1;
+        color: #f0f0f0;
+    }
+}
+
+/* Анимация для появления кнопок */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.update-button {
+    display: block;
+    padding: 15px 25px;
+    margin: 10px auto;
+    background: linear-gradient(to right, #000000, #555555, #b0b0b0);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.update-button:hover {
+    background: linear-gradient(to right, #333333, #777777, #d0d0d0);
+    transform: scale(1.05);
+}
+
+.update-section {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.update-timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff3333;
+}
+
+.download-section {
+    display: flex;
+    align-items: center;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 25px;
+    margin: 10px;
+    background: linear-gradient(to right, #000000, #555555, #b0b0b0);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: buttonFadeIn 5s forwards;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.download-button:hover {
+    background: linear-gradient(to right, #333333, #777777, #d0d0d0);
+    transform: scale(1.05);
+}
+
+@keyframes buttonFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Контейнер для списка песен с увеличенным размером */
+.music-list-container {
+    background: rgba(51, 51, 51, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 300px; /* Увеличиваем высоту */
+    overflow-y: auto;
+    width: 300px; /* Увеличиваем ширину */
+    text-align: center;
+    margin-bottom: 20px; /* Добавляем отступы снизу у списка песен */
+}
+
+/* Стилизация прокрутки для Webkit-браузеров (Chrome, Safari) */
+.music-list-container::-webkit-scrollbar {
+    width: 8px; /* Ширина полосы прокрутки */
+}
+
+.music-list-container::-webkit-scrollbar-track {
+    background: #333; /* Цвет фона полосы прокрутки */
+    border-radius: 8px;
+}
+
+.music-list-container::-webkit-scrollbar-thumb {
+    background-color: #ff9933; /* Цвет бегунка */
+    border-radius: 8px;
+    border: 2px solid #333; /* Пространство вокруг бегунка */
+}
+
+/* Заголовок для списка песен внутри контейнера */
+.music-list-title {
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.music-item {
+    color: #ffffff;
+    padding: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.music-item.selected {
+    color: darkorange; /* Меняем только цвет текста */
+    background-color: transparent; /* Убираем фон */
+}
+
+.music-item:hover {
+    color: orange; /* Меняем цвет текста */
+}
+
+.music-item:active {
+    background-color: lightorange;
+}
+
+/* Контейнер для плеера и списка песен */
+.audio-player-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Музыкальный плеер в одну строку */
+.audio-player {
+    background: rgba(51, 51, 51, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Расстояние между элементами */
+}
+
+
+.audio-player-title {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+/* Кнопки управления плеером */
+.audio-player button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.audio-player button:hover {
+    transform: scale(1.1);
+}
+
+.audio-player input[type="range"] {
+    width: 100px; /* Длина ползунка */
+    margin-left: 5px;
+}
+
+/* Кнопка для перехода на страницу с обновлениями игр */
+.updates-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(45deg, #444, #888, #aaa);
+    border-radius: 25px;
+    transition: background 0.5s, transform 0.5s;
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+    font-weight: 800; /* Полужирный для акцентов */
+}
+
+.updates-button:hover {
+    background: linear-gradient(45deg, #222, #555, #777);
+    transform: scale(1.1);
+}
+
+/* Кнопка для перехода на вики */
+.wiki-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(45deg, #444, #888, #aaa);
+    border-radius: 25px;
+    transition: background 0.5s, transform 0.5s;
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+    font-weight: 800; /* Полужирный для акцентов */
+}
+
+.wiki-button:hover {
+    background: linear-gradient(45deg, #222, #555, #777);
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Нижний правый угол - авторский текст */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    animation: fadeIn 5s forwards;
+}
+
+/* Основные стили для раздела обновлений */
+.updates-content {
+    padding: 20px;
+    color: #fff;
+}
+
+.update-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Стили для карточки обновления */
+.update-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #444, #666); /* фон с градиентом */
+}
+
+
+.update-image {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.patch {
+    background-color: #4caf50;
+}
+
+.hotfix {
+    background-color: #f44336;
+}
+
+.realese {
+    background: linear-gradient(135deg, red, green);
+}
+
+.update-details h2 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.update-info {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+.read-more {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #444;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Модальное окно */
+.modal-content {
+    background-color: #333;
+    margin: auto;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 80%;
+    max-width: 600px;
+    text-align: center; /* центрирование текста */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для закрывающего крестика */
+.close {
+    color: #aaa;
+    font-size: 36px; /* увеличенный размер */
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to right, #444, #666);
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.close:hover, .close:focus {
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Скрываем основное содержимое при открытом модальном окне */
+.hidden-content {
+    display: none;
+}
+
+/* Стиль для текста под заголовком */
+.center-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.center-description.visible {
+    opacity: 1;
+}
+
+/* Начальная и конечная непрозрачность модального окна */
+#updateModal {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none; /* Скрыто по умолчанию */
+}
+
+#updateModal.show {
+    display: block;
+    opacity: 1;
+}
+
+.version-button {
+    padding: 1px;
+    height: 59px;
+    background: linear-gradient(to right, #b0b0b0, #b0b0b0);
+    color: #ffffff;
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s;
+    margin-left: -20px;
+    margin-top: 10px;
+    animation: buttonFadeIn 5s forwards;
+}
+
+.version-button:hover {
+    background: linear-gradient(to right, #333333, #777777, #d0d0d0);
+}
+
+/* Обновленный стиль для меню версий */
+.version-menu {
+    position: absolute;
+    top: calc(100% + 5px); /* Меню появляется прямо под кнопкой */
+    left: 0;
+    display: none;
+    background-color: #656565;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 305px;
+}
+
+.version-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+}
+
+.version-menu a:hover {
+    background-color: #555555;
+}
+
+.game-link {
+    color: inherit; /* Унаследовать цвет текста */
+    text-decoration: none; /* Убрать подчеркивание */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    cursor: pointer;
+}
+
+.game-link:hover {
+    background-color: rgba(255, 255, 0, 0.3); /* Подсветка при наведении (желтый) */
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.modal.show {
+    display: block;
+}
+
+.update-info:hover {
+    color: #3498db; /* Замените на нужный цвет */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+

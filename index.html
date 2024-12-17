@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать игры от lavand7a и vonder</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1.1.5">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<audio id="background-music" loop>
+    <source src="sound/Litvin%20zhi_shi.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+</audio>
+
+<!-- Верхняя часть страницы с авторами -->
+<div class="header">
+    <div class="author" id="lavand7a" onclick="toggleSection('lavand7a-section', 'lavand7a')">by lavand7a</div>
+    <div class="author" id="vonder" onclick="toggleSection('vonder-section', 'vonder')">by vonder</div>
+</div>
+
+<!-- Центрированный текст, скрываемый при входе в подразделы -->
+<div class="center-content" id="main-description">
+    <h1>Здесь можно скачать игры от lavand7a и vonder</h1>
+</div>
+
+<!-- Главный раздел lavand7a с биографией -->
+<div id="lavand7a-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/Jgj3sMV.png" alt="lavand7a Photo" class="author-photo">
+        <div class="author-bio">
+            <h2>О lavand7a</h2>
+            <p>Lavand7a — разработчик, специализирующийся на создании игр. Он известен своим подходом к простым, но
+                увлекательным проектам, такими как "Крестики Нолики".</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="download-button fade-in" onclick="toggleSection('tictactoe-section', 'lavand7a')">Крестики
+            Нолики
+        </button>
+        <button class="download-button fade-in" onclick="toggleSection('calculator-section', 'lavand7a')">Онлайн
+            калькулятор
+        </button>
+    </div>
+    <!-- Блок для кнопок соцсетей -->
+    <div class="social-buttons">
+        <a href="https://t.me/ukrali_rust_s_playerok" target="_blank"><img src="images/telegram.png" alt="Telegram"></a>
+        <a href="https://discord.gg/XFGSUVCRKg" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+        <a href="https://vk.com/lavandaan" target="_blank"><img src="images/vk.png" alt="VK"></a>
+    </div>
+</div>
+
+<!-- Подраздел "Крестики Нолики" с описанием и кнопками скачивания -->
+<div id="tictactoe-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/Jgj3sMV.png" alt="lavand7a Photo" class="author-photo">
+        <div class="author-bio">
+            <h1>Скачать Крестики Нолики</h1>
+            <p>Это классическая игра "Крестики Нолики", созданная для любителей стратегий.</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="downloads/server.exe" class="download-button fade-in" download>Скачать server.exe</a>
+        <a href="downloads/client.exe" class="download-button fade-in" download>Скачать client.exe</a>
+    </div>
+    <div class="button-container">
+        <a href="#lavand7a-section" class="download-button fade-in"
+           onclick="toggleSection('lavand7a-section', 'lavand7a')"
+           style="display: block; text-align: center; margin-top: 20px;">Вернуться к выбору игр</a>
+    </div>
+</div>
+
+<!-- Подраздел "Онлайн калькулятор" с описанием и кнопками скачивания -->
+<div id="calculator-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/Jgj3sMV.png" alt="lavand7a Photo" class="author-photo">
+        <div class="author-bio">
+            <h2>следующая игра</h2>
+            <p>Тут будет следующая игра.</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="downloads/calc_server.exe" class="download-button fade-in" download>Скачать calc_server.exe</a>
+        <a href="downloads/calc_client.exe" class="download-button fade-in" download>Скачать calc_client.exe</a>
+    </div>
+    <div class="button-container">
+        <a href="#lavand7a-section" class="download-button fade-in"
+           onclick="toggleSection('lavand7a-section', 'lavand7a')"
+           style="display: block; text-align: center; margin-top: 20px;">Вернуться к выбору игр</a>
+    </div>
+</div>
+
+<!-- Главный раздел vonder с биографией -->
+<div id="vonder-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/IPPfL3L.png" alt="vonder Photo" class="author-photo">
+        <div class="author-bio">
+            <h2>О vonder</h2>
+            <p>Vonder — разработчик с творческим подходом, сосредоточенный на создании инновационных игровых проектов. У него есть первая созданная игра - InvokerGames.</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <!-- Кнопка для открытия раздела InvokerGames -->
+        <a href="javascript:void(0)" class="download-button fade-in" onclick="toggleSection('invokergames-section', 'vonder')">InvokerGames</a>
+        <!-- Кнопка для новой игры -->
+        <button class="download-button fade-in" onclick="toggleSection('newgame-section', 'vonder')">Новая игра</button>
+    </div>
+    <!-- Блок для кнопок соцсетей -->
+    <div class="social-buttons">
+        <a href="https://t.me/Valdemarih" target="_blank"><img src="images/telegram.png" alt="Telegram"></a>
+        <a href="https://discord.gg/XFGSUVCRKg" target="_blank"><img src="images/discord.png" alt="Discord"></a>
+        <a href="https://vk.com/id633715518" target="_blank"><img src="images/vk.png" alt="VK"></a>
+    </div>
+</div>
+
+<!-- Подраздел "InvokerGames" с описанием и кнопками скачивания -->
+<div id="invokergames-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/IPPfL3L.png" alt="vonder Photo" class="author-photo">
+        <div class="author-bio">
+            <h1>Скачать InvokerGames</h1>
+            <p>Это инновационная игра, разработанная vonder, для тех, кто любит новые и захватывающие игровые миры.</p>
+        </div>
+    </div>
+    <div class="button-container" style="position: relative;">
+        <!-- Кнопка "Скачать InvokerGames" и стрелка для меню версий -->
+        <a href="downloads/InvokerGameSetup1.6.exe" class="download-button fade-in" download>Скачать InvokerGames</a>
+        <button class="version-button" onclick="toggleVersionMenu()">⬇️</button>
+
+        <!-- Меню версий -->
+        <div id="version-menu" class="version-menu">
+            <a href="downloads/InvokerGamesSetup.msi" download>Версия 1.0(alpha)(c#)</a>
+            <a href="downloads/InvokerGameSetup1.5.exe" download>Версия 1.5(unity)</a>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="#vonder-section" class="download-button fade-in" onclick="toggleSection('vonder-section', 'vonder')"
+           style="display: block; text-align: center; margin-top: 20px;">Вернуться к выбору игр</a>
+    </div>
+</div>
+
+<!-- Подраздел "Новая игра" с описанием и кнопками скачивания -->
+<div id="newgame-section" class="author-content" style="display: none;">
+    <div class="author-info">
+        <img src="https://i.imgur.com/IPPfL3L.png" alt="vonder Photo" class="author-photo">
+        <div class="author-bio">
+            <h2>Новая игра от vonder</h2>
+            <p>Будьте готовы к следующей инновационной игре от vonder!</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <a href="downloads/newgame_server.exe" class="download-button fade-in" download>Скачать newgame_server.exe</a>
+        <a href="downloads/newgame_client.exe" class="download-button fade-in" download>Скачать newgame_client.exe</a>
+    </div>
+    <div class="button-container">
+        <a href="#vonder-section" class="download-button fade-in" onclick="toggleSection('vonder-section', 'vonder')"
+           style="display: block; text-align: center; margin-top: 20px;">Вернуться к выбору игр</a>
+    </div>
+</div>
+
+<!-- Кнопка для вики -->
+<a href="/wiki.html" class="wiki-button">Вики</a>
+<!-- Кнопка для перехода на страницу с обновлениями игр -->
+<a href="games_updates.html" class="updates-button">Обновления игр</a>
+
+<!-- Контейнер для музыкального плеера -->
+<div class="audio-player-container">
+    <div id="music-list-container" class="music-list-container">
+        <div class="music-list-title">Список песен</div>
+        <ul id="music-list" class="music-list"></ul>
+    </div>
+    <div class="audio-player">
+        <div class="audio-player-title">Включение музыки / Плеер</div>
+        <button id="play-pause" onclick="togglePlay()">▶️</button>
+        <button id="stop" onclick="stopMusic()">⏹️</button>
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)">
+    </div>
+</div>
+
+<!-- Кнопка для возвращения на главную страницу -->
+<a id="return-button" class="return-button1" onclick="returnToMain()" style="display: none;">Вернуться на главную
+    страницу</a>
+
+<div class="footer">by lavand7a</div>
+<div class="footer-text">
+    Играешь в раст? — Ты фул жир. <a href="timer.html" class="highlight-link">ТЫК</a>
+</div>
+<script src="script.js?v=1.1.5"></script>
+</body>
+</html>

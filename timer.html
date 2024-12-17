@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css?v=1.1.5">
+    <title>Точное время: Нью-Йорк и Москва</title>
+    <style>
+        body {
+            background-color: #333;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .time-container,
+        .calculator {
+            background-color: #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #ddd;
+            margin: 10px 0;
+        }
+
+        .time {
+            font-size: 1.3em;
+            color: #fff;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .calculator label {
+            font-size: 0.9em;
+        }
+
+        button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background-color: #666;
+        }
+
+        /* Уменьшение размера шрифта в полях ввода для часов и минут */
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            font-size: 0.7em; /* Уменьшение размера шрифта */
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #222;
+            color: #fff;
+            margin: 10px;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #777;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #555;
+            font-size: 0.9em;
+        }
+
+        /* Кнопка возврата на главную страницу */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #444, #888, #aaa);
+            border-radius: 25px;
+            transition: background 0.5s, transform 0.5s;
+            font-weight: 800;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #222, #555, #777);
+            transform: scale(1.1);
+        }
+
+        /* Подпись */
+        .footer-signature {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.8em;
+            color: #aaa;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<!-- Кнопка для возврата на главную страницу -->
+<a href="index.html" class="back-button">Вернуться на главную страницу</a>
+<h1>Точное время в Нью-Йорке и Москве</h1>
+
+<div class="time-container">
+    <h2>Нью-Йорк:</h2>
+    <div id="nyTime" class="time"></div>
+</div>
+
+<div class="time-container">
+    <h2>Москва:</h2>
+    <div id="moscowTime" class="time"></div>
+</div>
+
+<div class="time-container">
+    <h2>Разница во времени:</h2>
+    <div id="timeDifference" class="time"></div>
+</div>
+
+<div class="calculator">
+    <h2>Калькулятор времени</h2>
+    <label for="hours">Введите часы Нью-Йорка:</label>
+    <input type="number" id="hours" min="1" max="12" placeholder="Часы">
+
+    <label for="ampm">AM/PM:</label>
+    <select id="ampm">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+    </select>
+
+    <br>
+    <label for="minutes">Введите минуты Нью-Йорка:</label>
+    <input type="number" id="minutes" min="0" max="59" placeholder="Минуты">
+    <br>
+    <button onclick="calculateMoscowTime()">Рассчитать время в Москве</button>
+    <div id="moscowTimeCalculated" class="time"></div>
+</div>
+
+<!-- Подпись -->
+<div class="footer-signature">by lavand7a</div>
+
+<script>
+    function updateTimes() {
+        // Получаем текущее время в Нью-Йорке и Москве в формате ISO
+        let nyTime = new Date(new Date().toLocaleString("en-US", {timeZone: "America/New_York"}));
+        let moscowTime = new Date(new Date().toLocaleString("en-US", {timeZone: "Europe/Moscow"}));
+
+        // Вывод времени на сайт
+        document.getElementById('nyTime').textContent = nyTime.toLocaleString("en-US");
+        document.getElementById('moscowTime').textContent = moscowTime.toLocaleString("ru-RU", {hour12: false});
+
+        // Рассчитываем разницу во времени
+        let diffMilliseconds = Math.abs(moscowTime - nyTime);
+        let diffHours = Math.floor(diffMilliseconds / (1000 * 60 * 60));
+        let diffMinutes = Math.floor((diffMilliseconds % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('timeDifference').textContent = `${diffHours} часов и ${diffMinutes} минут`;
+    }
+
+
+    function calculateMoscowTime() {
+        let nyHours = parseInt(document.getElementById('hours').value);
+        let nyMinutes = parseInt(document.getElementById('minutes').value);
+        let ampm = document.getElementById('ampm').value;
+
+        if (isNaN(nyHours) || isNaN(nyMinutes) || nyHours < 1 || nyHours > 12 || nyMinutes < 0 || nyMinutes > 59) {
+            document.getElementById('moscowTimeCalculated').textContent = "Введите корректные данные";
+            return;
+        }
+
+        // Конвертация времени Нью-Йорка в 24-часовой формат
+        if (ampm === "PM" && nyHours !== 12) {
+            nyHours += 12;
+        } else if (ampm === "AM" && nyHours === 12) {
+            nyHours = 0;
+        }
+
+        let nyTimeInMinutes = nyHours * 60 + nyMinutes;
+        let moscowOffset = 7 * 60; // Разница между Нью-Йорком и Москвой в минутах (7 часов)
+        let moscowTimeInMinutes = (nyTimeInMinutes + moscowOffset) % (24 * 60);
+
+        let moscowHours = Math.floor(moscowTimeInMinutes / 60);
+        let moscowMinutes = moscowTimeInMinutes % 60;
+
+        document.getElementById('moscowTimeCalculated').textContent =
+            `Время в Москве: ${moscowHours.toString().padStart(2, '0')}:${moscowMinutes.toString().padStart(2, '0')}`;
+    }
+
+    setInterval(updateTimes, 1000);
+</script>
+</body>
+</html>
